@@ -4,6 +4,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.Objects;
 
 @XmlRootElement(name = "EstablishmentDetail")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -49,5 +50,20 @@ public class EstablishmentDetail {
                 ", postCode='" + postCode + '\'' +
                 ", ratingValue='" + ratingValue + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EstablishmentDetail that = (EstablishmentDetail) o;
+        return Objects.equals(businessName, that.businessName) &&
+                Objects.equals(postCode, that.postCode) &&
+                Objects.equals(ratingValue, that.ratingValue);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(businessName, postCode, ratingValue);
     }
 }

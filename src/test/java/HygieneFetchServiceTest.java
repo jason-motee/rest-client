@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(classes = Application.class, properties = "food-health-ratings = localhost:8089")
 @RunWith(SpringRunner.class)
-public class ApplicationTest {
+public class HygieneFetchServiceTest {
 
     @Rule
     public WireMockRule wireMockRule = new WireMockRule(8089);
@@ -38,6 +38,7 @@ public class ApplicationTest {
         assertThat(data.getEstablishmentCollection().getEstablishmentDetail().get(0).getBusinessName()).isEqualTo("1847 Manchester");
     }
 
+
     private void stubXmlFile() {
         stubFor(get(urlEqualTo("/OpenDataFiles/FHRS415en-GB.xml"))
                 .withHeader("Accept", equalTo("application/json, application/json, application/xml, application/*+json, application/*+json, text/xml, application/*+xml"))
@@ -46,4 +47,6 @@ public class ApplicationTest {
                         .withHeader("Content-Type", "text/xml")
                         .withBodyFile("FHRS415en-GB.xml")));
     }
+
+
 }
