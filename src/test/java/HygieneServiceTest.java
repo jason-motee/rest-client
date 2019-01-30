@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -14,24 +15,30 @@ import static org.mockito.MockitoAnnotations.initMocks;
 public class HygieneServiceTest {
 
     @Mock
-    HygieneFetchService hygieneFetchService;
+    private HygieneFetchService hygieneFetchService;
+    private HygieneService hygieneService;
 
     @Before
     public void setUp(){
         initMocks(this);
-
+        hygieneService = new HygieneService(hygieneFetchService);
     }
 
     @Test
     public void shouldFindARestaurantByName() {
-        HygieneService hygieneService = new HygieneService(hygieneFetchService);
-        when(hygieneFetchService.fetchData()).thenReturn(fakeFHRSEstablishment());
+        EstablishmentDetail establishmentDetail1 = fakeEstablishmentDetail("restaurant", "M15 4FN", "5");
+        EstablishmentDetail establishmentDetail2 = fakeEstablishmentDetail("restaurant2", "M12 4FN", "4");
+
+        FHRSEstablishment fhrsEstablishment = makeFhrsEstablishment(establishmentDetail1, establishmentDetail2);
+        when(hygieneFetchService.fetchData()).thenReturn(fhrsEstablishment);
+
+        List<EstablishmentDetail> actual = hygieneService.getRestaurantByName("restaurant");
 
         List<EstablishmentDetail> expected = Collections.singletonList(fakeEstablishmentDetail("restaurant", "M15 4FN", "5"));
-        List<EstablishmentDetail> actual = hygieneService.getRestaurantByName("restaurant");
 
         assertThat(actual).isEqualTo(expected);
     }
+
 
     @Test
     public void whenTwoRestaurantsHaveTheSameName_shouldReturnBoth(){
@@ -39,27 +46,15 @@ public class HygieneServiceTest {
         EstablishmentDetail establishmentDetail2 = fakeEstablishmentDetail("not same", "M4 4GN", "1");
         EstablishmentDetail establishmentDetail3 = fakeEstablishmentDetail("same", "M15 4YN", "5");
 
-        List<EstablishmentDetail> establishmentDetails = new ArrayList<>();
-        establishmentDetails.add(establishmentDetail1);
-        establishmentDetails.add(establishmentDetail2);
-        establishmentDetails.add(establishmentDetail3);
+        FHRSEstablishment fhrsEstablishment = makeFhrsEstablishment(establishmentDetail1, establishmentDetail2, establishmentDetail3);
 
-        EstablishmentCollection establishmentCollection = new EstablishmentCollection();
-        establishmentCollection.setRestaurantDetail(establishmentDetails);
-
-        FHRSEstablishment fhrsEstablishment2 = new FHRSEstablishment();
-        fhrsEstablishment2.setEstablishmentCollection(establishmentCollection);
-
-        HygieneService hygieneService = new HygieneService(hygieneFetchService);
-        when(hygieneFetchService.fetchData()).thenReturn(fhrsEstablishment2);
-
+        when(hygieneFetchService.fetchData()).thenReturn(fhrsEstablishment);
 
         List<EstablishmentDetail> actual = hygieneService.getRestaurantByName("same");
 
         List <EstablishmentDetail> expected = new ArrayList<>();
         expected.add(fakeEstablishmentDetail("same", "M15 4FN", "3"));
         expected.add(fakeEstablishmentDetail("same", "M15 4YN", "5"));
-
 
         assertThat(actual).isEqualTo(expected);
     }
@@ -72,13 +67,8 @@ public class HygieneServiceTest {
         return expected;
     }
 
-    private FHRSEstablishment fakeFHRSEstablishment() {
-        EstablishmentDetail establishmentDetail1 = fakeEstablishmentDetail("restaurant", "M15 4FN", "5");
-        EstablishmentDetail establishmentDetail2 = fakeEstablishmentDetail("restaurant2", "M12 4FN", "4");
-
-        List<EstablishmentDetail> restaurantList = new ArrayList<>();
-        restaurantList.add(establishmentDetail2);
-        restaurantList.add(establishmentDetail1);
+    private FHRSEstablishment makeFhrsEstablishment(EstablishmentDetail... establishmentDetails) {
+        List<EstablishmentDetail> restaurantList = Arrays.asList(establishmentDetails);
 
         EstablishmentCollection establishmentCollection = new EstablishmentCollection();
         establishmentCollection.setRestaurantDetail(restaurantList);
