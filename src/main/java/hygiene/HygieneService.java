@@ -1,5 +1,6 @@
 package hygiene;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HygieneService {
@@ -10,8 +11,8 @@ public class HygieneService {
         this.hygieneFetchService = hygieneFetchService;
     }
 
-    public EstablishmentDetail getRestaurantByName(String name) {
-        EstablishmentDetail restaurantFound = null;
+    public List <EstablishmentDetail> getRestaurantByName(String name) {
+        List <EstablishmentDetail> restaurantFound = new ArrayList<>();
 
         List <EstablishmentDetail> listOfRestaurants = hygieneFetchService.fetchData()
                 .getEstablishmentCollection()
@@ -19,7 +20,7 @@ public class HygieneService {
 
         for (EstablishmentDetail restaurantDetail:listOfRestaurants) {
             if (name.equals(restaurantDetail.getBusinessName())){
-                restaurantFound = restaurantDetail;
+                restaurantFound.add(restaurantDetail);
             }
         }
         return restaurantFound;

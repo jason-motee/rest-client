@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
@@ -22,12 +23,43 @@ public class HygieneServiceTest {
     }
 
     @Test
-    public void findARestaurantByName() {
+    public void shouldFindARestaurantByName() {
         HygieneService hygieneService = new HygieneService(hygieneFetchService);
         when(hygieneFetchService.fetchData()).thenReturn(fakeFHRSEstablishment());
 
-        EstablishmentDetail expected = fakeEstablishmentDetail("restaurant", "M15 4FN", "5");
-        EstablishmentDetail actual = hygieneService.getRestaurantByName("restaurant");
+        List<EstablishmentDetail> expected = Collections.singletonList(fakeEstablishmentDetail("restaurant", "M15 4FN", "5"));
+        List<EstablishmentDetail> actual = hygieneService.getRestaurantByName("restaurant");
+
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void whenTwoRestaurantsHaveTheSameName_shouldReturnBoth(){
+        EstablishmentDetail establishmentDetail1 = fakeEstablishmentDetail("same", "M15 4FN", "3");
+        EstablishmentDetail establishmentDetail2 = fakeEstablishmentDetail("not same", "M4 4GN", "1");
+        EstablishmentDetail establishmentDetail3 = fakeEstablishmentDetail("same", "M15 4YN", "5");
+
+        List<EstablishmentDetail> establishmentDetails = new ArrayList<>();
+        establishmentDetails.add(establishmentDetail1);
+        establishmentDetails.add(establishmentDetail2);
+        establishmentDetails.add(establishmentDetail3);
+
+        EstablishmentCollection establishmentCollection = new EstablishmentCollection();
+        establishmentCollection.setRestaurantDetail(establishmentDetails);
+
+        FHRSEstablishment fhrsEstablishment2 = new FHRSEstablishment();
+        fhrsEstablishment2.setEstablishmentCollection(establishmentCollection);
+
+        HygieneService hygieneService = new HygieneService(hygieneFetchService);
+        when(hygieneFetchService.fetchData()).thenReturn(fhrsEstablishment2);
+
+
+        List<EstablishmentDetail> actual = hygieneService.getRestaurantByName("same");
+
+        List <EstablishmentDetail> expected = new ArrayList<>();
+        expected.add(fakeEstablishmentDetail("same", "M15 4FN", "3"));
+        expected.add(fakeEstablishmentDetail("same", "M15 4YN", "5"));
+
 
         assertThat(actual).isEqualTo(expected);
     }
