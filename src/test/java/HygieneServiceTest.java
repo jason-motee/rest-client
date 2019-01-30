@@ -23,15 +23,26 @@ public class HygieneServiceTest {
 
     @Test
     public void findARestaurantByName() {
-        EstablishmentDetail establishmentDetail1 = new EstablishmentDetail();
-        establishmentDetail1.setBusinessName("restaurant");
-        establishmentDetail1.setPostCode("M15 4FN");
-        establishmentDetail1.setRatingValue("5");
+        HygieneService hygieneService = new HygieneService(hygieneFetchService);
+        when(hygieneFetchService.fetchData()).thenReturn(fakeFHRSEstablishment());
 
-        EstablishmentDetail establishmentDetail2 = new EstablishmentDetail();
-        establishmentDetail2.setBusinessName("restaurant2");
-        establishmentDetail2.setPostCode("M12 4FN");
-        establishmentDetail2.setRatingValue("4");
+        EstablishmentDetail expected = fakeEstablishmentDetail("restaurant", "M15 4FN", "5");
+        EstablishmentDetail actual = hygieneService.getRestaurantByName("restaurant");
+
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    private EstablishmentDetail fakeEstablishmentDetail(String name, String postCode, String healthRating) {
+        EstablishmentDetail expected = new EstablishmentDetail();
+        expected.setBusinessName(name);
+        expected.setPostCode(postCode);
+        expected.setRatingValue(healthRating);
+        return expected;
+    }
+
+    private FHRSEstablishment fakeFHRSEstablishment() {
+        EstablishmentDetail establishmentDetail1 = fakeEstablishmentDetail("restaurant", "M15 4FN", "5");
+        EstablishmentDetail establishmentDetail2 = fakeEstablishmentDetail("restaurant2", "M12 4FN", "4");
 
         List<EstablishmentDetail> restaurantList = new ArrayList<>();
         restaurantList.add(establishmentDetail2);
@@ -42,18 +53,6 @@ public class HygieneServiceTest {
 
         FHRSEstablishment fhrsEstablishment = new FHRSEstablishment();
         fhrsEstablishment.setEstablishmentCollection(establishmentCollection);
-
-
-        when(hygieneFetchService.fetchData()).thenReturn(fhrsEstablishment);
-
-        HygieneService hygieneService = new HygieneService(hygieneFetchService);
-
-        EstablishmentDetail actual = hygieneService.getRestaurantByName("restaurant");
-        EstablishmentDetail expected = new EstablishmentDetail();
-        expected.setBusinessName("restaurant");
-        expected.setPostCode("M15 4FN");
-        expected.setRatingValue("5");
-
-        assertThat(actual).isEqualTo(expected);
+        return fhrsEstablishment;
     }
 }

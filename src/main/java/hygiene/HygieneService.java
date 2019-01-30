@@ -10,8 +10,7 @@ public class HygieneService {
         this.hygieneFetchService = hygieneFetchService;
     }
 
-    public EstablishmentDetail getRestaurantByName(String restaurant) {
-
+    public EstablishmentDetail getRestaurantByName(String name) {
         EstablishmentDetail restaurantFound = null;
 
         List <EstablishmentDetail> listOfRestaurants = hygieneFetchService.fetchData()
@@ -19,7 +18,7 @@ public class HygieneService {
                 .getEstablishmentDetailList();
 
         for (EstablishmentDetail restaurantDetail:listOfRestaurants) {
-            if (restaurant.equals(restaurantDetail.getBusinessName())){
+            if (name.equals(restaurantDetail.getBusinessName())){
                 restaurantFound = restaurantDetail;
             }
         }
