@@ -3,14 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="db8a3829-58b6-46ec-81e1-bd61ccf57a5b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/HygieneServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/HygieneServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/Application.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/Greeting.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/GreetingController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hi/Application.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hi/Quote.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hi/Value.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hygiene/HygieneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hygiene/HygieneService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/hello/Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/hello/Greeting.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/hello/GreetingController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/hi/Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/hi/Quote.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/hi/Value.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/hygiene/HygieneService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/hygiene/HygieneService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/HygieneServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/HygieneServiceTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -41,30 +40,31 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gradle" value="6" />
-          <entry key="java" value="571" />
-          <entry key="xml" value="6" />
+          <entry key="java" value="593" />
+          <entry key="xml" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="6" />
-          <entry key="JAVA" value="538" />
+          <entry key="JAVA" value="560" />
           <entry key="Scratch" value="33" />
-          <entry key="XML" value="6" />
+          <entry key="XML" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="81" />
           <entry key="gradle" value="4" />
-          <entry key="java" value="6755" />
+          <entry key="java" value="6776" />
+          <entry key="txt" value="53" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="4" />
-          <entry key="JAVA" value="3188" />
-          <entry key="PLAIN_TEXT" value="81" />
+          <entry key="JAVA" value="3209" />
+          <entry key="PLAIN_TEXT" value="134" />
           <entry key="Scratch" value="3567" />
         </counts>
       </usages-collector>
@@ -73,10 +73,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/HygieneServiceTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hygiene/HygieneFetchService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="76" column="29" lean-forward="true" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="29" />
+            <state relative-caret-position="210">
+              <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -718,7 +718,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549535257412" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549537076035" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JAVA" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -730,11 +730,11 @@
     <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/test/resources" />
-    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="hygiene" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -749,7 +749,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.HygieneServiceTest.shouldFindARestaurantByPostCode">
+  <component name="RunManager" selected="Spring Boot.Application">
     <configuration name="HygieneServiceTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
       <module name="rest-client_test" />
       <option name="PACKAGE_NAME" value="" />
@@ -761,13 +761,6 @@
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="One" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="One" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -813,6 +806,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="rest-client_main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hygiene.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="hygiene.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <properties />
@@ -832,18 +838,18 @@
     </configuration>
     <list>
       <item itemvalue="Java Scratch.One" />
-      <item itemvalue="Application.One" />
       <item itemvalue="Android JUnit.HygieneServiceTest" />
       <item itemvalue="JUnit.HygieneServiceTest.shouldFindARestaurantByHealthRating" />
       <item itemvalue="JUnit.HygieneServiceTest.shouldFindARestaurantByPostCode" />
+      <item itemvalue="Spring Boot.Application" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.HygieneServiceTest.shouldFindARestaurantByPostCode" />
+        <item itemvalue="Spring Boot.Application" />
         <item itemvalue="Android JUnit.HygieneServiceTest" />
+        <item itemvalue="JUnit.HygieneServiceTest.shouldFindARestaurantByPostCode" />
         <item itemvalue="JUnit.HygieneServiceTest.shouldFindARestaurantByHealthRating" />
         <item itemvalue="Java Scratch.One" />
-        <item itemvalue="Application.One" />
       </list>
     </recent_temporary>
   </component>
@@ -862,26 +868,19 @@
       <workItem from="1549036849910" duration="258000" />
       <workItem from="1549217248851" duration="2252000" />
       <workItem from="1549279839016" duration="10378000" />
-      <workItem from="1549533830858" duration="1261000" />
+      <workItem from="1549533830858" duration="3199000" />
     </task>
+    <task id="LOCAL-00001" summary="Add get by health rating and get by postcode methods">
+      <created>1549535371059</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1549535371059</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="HygieneServiceTest_findARestaurantByName - 2019.01.30 at 15h 50m 44s.xml">
-      <configuration name="HygieneServiceTest.findARestaurantByName" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HygieneServiceTest_findARestaurantByName - 2019.01.30 at 15h 51m 30s.xml">
-      <configuration name="HygieneServiceTest.findARestaurantByName" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HygieneServiceTest_findARestaurantByName - 2019.01.30 at 16h 15m 07s.xml">
-      <configuration name="HygieneServiceTest.findARestaurantByName" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HygieneServiceTest - 2019.01.30 at 16h 15m 21s.xml">
-      <configuration name="HygieneServiceTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HygieneServiceTest - 2019.01.30 at 16h 16m 09s.xml">
-      <configuration name="HygieneServiceTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="HygieneServiceTest - 2019.01.30 at 16h 25m 08s.xml">
       <configuration name="HygieneServiceTest" configurationId="JUnit" />
     </history-entry>
@@ -897,9 +896,24 @@
     <history-entry file="HygieneServiceTest - 2019.02.07 at 10h 16m 11s.xml">
       <configuration name="HygieneServiceTest" configurationId="AndroidJUnit" />
     </history-entry>
+    <history-entry file="HygieneServiceTest_shouldFindARestaurantByPostCode - 2019.02.07 at 10h 25m 03s.xml">
+      <configuration name="HygieneServiceTest.shouldFindARestaurantByPostCode" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HygieneServiceTest_shouldFindARestaurantByPostCode - 2019.02.07 at 10h 26m 32s.xml">
+      <configuration name="HygieneServiceTest.shouldFindARestaurantByPostCode" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HygieneServiceTest_shouldFindARestaurantByPostCode - 2019.02.07 at 10h 27m 16s.xml">
+      <configuration name="HygieneServiceTest.shouldFindARestaurantByPostCode" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HygieneServiceTest_shouldFindARestaurantByPostCode - 2019.02.07 at 10h 27m 39s.xml">
+      <configuration name="HygieneServiceTest.shouldFindARestaurantByPostCode" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HygieneServiceTest - 2019.02.07 at 10h 38m 48s.xml">
+      <configuration name="HygieneServiceTest" configurationId="AndroidJUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79317000" />
+    <option name="totallyTimeSpent" value="81255000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -911,7 +925,7 @@
       <window_info id="Capture Tool" order="3" />
       <window_info id="Web" order="4" side_tool="true" />
       <window_info id="Designer" order="5" />
-      <window_info content_ui="combo" id="Project" order="6" weight="0.1875" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.1875" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Build" order="0" weight="0.29444444" />
       <window_info anchor="bottom" id="Spring" order="1" />
@@ -923,8 +937,8 @@
       <window_info anchor="bottom" id="FindBugs-IDEA" order="7" />
       <window_info anchor="bottom" id="Message" order="8" />
       <window_info anchor="bottom" id="Find" order="9" />
-      <window_info anchor="bottom" id="Run" order="10" weight="0.3288889" />
-      <window_info anchor="bottom" id="Debug" order="11" visible="true" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="10" visible="true" weight="0.3288889" />
+      <window_info anchor="bottom" id="Debug" order="11" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="12" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="13" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="14" />
@@ -986,6 +1000,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add get by health rating and get by postcode methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add get by health rating and get by postcode methods" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1205,10 +1223,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hygiene/Application.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hygiene/EstablishmentCollection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+        <state relative-caret-position="120">
+          <caret line="12" column="10" lean-forward="true" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -1219,27 +1237,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hygiene/EstablishmentCollection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="12" column="10" lean-forward="true" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hygiene/EstablishmentDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hygiene/FHRSEstablishment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/__files/FHRS415en-GB.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1247,24 +1244,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hygiene/HygieneFetchService.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/HygieneServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+        <state relative-caret-position="-761">
+          <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hygiene/FHRSEstablishment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="15" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hygiene/EstablishmentDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hygiene/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hygiene/HygieneService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="44" column="76" selection-start-line="44" selection-start-column="76" selection-end-line="44" selection-end-column="76" />
+        <state relative-caret-position="369">
+          <caret line="44" column="19" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/HygieneServiceTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hygiene/HygieneFetchService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="76" column="29" lean-forward="true" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="29" />
+        <state relative-caret-position="210">
+          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
         </state>
       </provider>
     </entry>

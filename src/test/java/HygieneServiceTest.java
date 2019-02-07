@@ -62,7 +62,9 @@ public class HygieneServiceTest {
                         fakeEstablishmentDetail("restaurant1", "M15 4FN", "5"),
                         fakeEstablishmentDetail("restaurant2", "M4 4GN", "5"),
                         fakeEstablishmentDetail("restaurant3", "M15 4YJ", "3"),
-                        fakeEstablishmentDetail("restaurant4", "M15 4OJ", "1")));
+                        fakeEstablishmentDetail("restaurant4", "M15 4OJ", "1"),
+                        fakeEstablishmentDetail("restaurant4", "M14 4OJ", "1"),
+                        fakeEstablishmentDetail("restaurant6", "M25 4OJ", "1")));
 
         List <EstablishmentDetail> actual = hygieneService.getRestaurantByHealthRating("5");
 
@@ -90,7 +92,6 @@ public class HygieneServiceTest {
         expected.add(fakeEstablishmentDetail("restaurant4", "M15 4OJ", "1"));
 
         assertThat(actual).isEqualTo(expected);
-
     }
 
     private EstablishmentDetail fakeEstablishmentDetail(String name, String postCode, String healthRating) {
