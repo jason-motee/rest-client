@@ -19,44 +19,78 @@ public class HygieneServiceTest {
     private HygieneService hygieneService;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         initMocks(this);
         hygieneService = new HygieneService(hygieneFetchService);
     }
 
     @Test
     public void shouldFindARestaurantByName() {
-        EstablishmentDetail establishmentDetail1 = fakeEstablishmentDetail("restaurant", "M15 4FN", "5");
-        EstablishmentDetail establishmentDetail2 = fakeEstablishmentDetail("restaurant2", "M12 4FN", "4");
+        when(hygieneFetchService.fetchData()).thenReturn(
+                makeFhrsEstablishment(
+                        fakeEstablishmentDetail("restaurant", "M15 4FN", "5"),
+                        fakeEstablishmentDetail("restaurant2", "M12 4FN", "4")));
 
-        FHRSEstablishment fhrsEstablishment = makeFhrsEstablishment(establishmentDetail1, establishmentDetail2);
-        when(hygieneFetchService.fetchData()).thenReturn(fhrsEstablishment);
+        List <EstablishmentDetail> actual = hygieneService.getRestaurantByName("restaurant");
 
-        List<EstablishmentDetail> actual = hygieneService.getRestaurantByName("restaurant");
-
-        List<EstablishmentDetail> expected = Collections.singletonList(fakeEstablishmentDetail("restaurant", "M15 4FN", "5"));
+        List <EstablishmentDetail> expected = Collections.singletonList(fakeEstablishmentDetail("restaurant", "M15 4FN", "5"));
 
         assertThat(actual).isEqualTo(expected);
     }
 
-
     @Test
-    public void whenTwoRestaurantsHaveTheSameName_shouldReturnBoth(){
-        EstablishmentDetail establishmentDetail1 = fakeEstablishmentDetail("same", "M15 4FN", "3");
-        EstablishmentDetail establishmentDetail2 = fakeEstablishmentDetail("not same", "M4 4GN", "1");
-        EstablishmentDetail establishmentDetail3 = fakeEstablishmentDetail("same", "M15 4YN", "5");
+    public void whenTwoRestaurantsHaveTheSameName_shouldReturnBoth() {
+        when(hygieneFetchService.fetchData()).thenReturn(
+                makeFhrsEstablishment(
+                        fakeEstablishmentDetail("same", "M15 4FN", "3"),
+                        fakeEstablishmentDetail("not same", "M4 4GN", "1"),
+                        fakeEstablishmentDetail("same", "M15 4YN", "5")));
 
-        FHRSEstablishment fhrsEstablishment = makeFhrsEstablishment(establishmentDetail1, establishmentDetail2, establishmentDetail3);
-
-        when(hygieneFetchService.fetchData()).thenReturn(fhrsEstablishment);
-
-        List<EstablishmentDetail> actual = hygieneService.getRestaurantByName("same");
+        List <EstablishmentDetail> actual = hygieneService.getRestaurantByName("same");
 
         List <EstablishmentDetail> expected = new ArrayList<>();
         expected.add(fakeEstablishmentDetail("same", "M15 4FN", "3"));
         expected.add(fakeEstablishmentDetail("same", "M15 4YN", "5"));
 
         assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void shouldFindARestaurantByHealthRating() {
+        when(hygieneFetchService.fetchData()).thenReturn(
+                makeFhrsEstablishment(
+                        fakeEstablishmentDetail("restaurant1", "M15 4FN", "5"),
+                        fakeEstablishmentDetail("restaurant2", "M4 4GN", "5"),
+                        fakeEstablishmentDetail("restaurant3", "M15 4YJ", "3"),
+                        fakeEstablishmentDetail("restaurant4", "M15 4OJ", "1")));
+
+        List <EstablishmentDetail> actual = hygieneService.getRestaurantByHealthRating("5");
+
+        List <EstablishmentDetail> expected = new ArrayList<>();
+        expected.add(fakeEstablishmentDetail("restaurant1", "M15 4FN", "5"));
+        expected.add(fakeEstablishmentDetail("restaurant2", "M4 4GN", "5"));
+
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void shouldFindARestaurantByPostCode() {
+        when(hygieneFetchService.fetchData()).thenReturn(
+                makeFhrsEstablishment(
+                        fakeEstablishmentDetail("restaurant1", "M15 4FN", "5"),
+                        fakeEstablishmentDetail("restaurant2", "M4 4GN", "5"),
+                        fakeEstablishmentDetail("restaurant3", "M15 4YJ", "3"),
+                        fakeEstablishmentDetail("restaurant4", "M15 4OJ", "1")));
+
+        List <EstablishmentDetail> actual = hygieneService.getRestaurantByPostCode("M15 5FN");
+
+        List <EstablishmentDetail> expected = new ArrayList<>();
+        expected.add(fakeEstablishmentDetail("restaurant1", "M15 4FN", "5"));
+        expected.add(fakeEstablishmentDetail("restaurant3", "M15 4YJ", "3"));
+        expected.add(fakeEstablishmentDetail("restaurant4", "M15 4OJ", "1"));
+
+        assertThat(actual).isEqualTo(expected);
+
     }
 
     private EstablishmentDetail fakeEstablishmentDetail(String name, String postCode, String healthRating) {
